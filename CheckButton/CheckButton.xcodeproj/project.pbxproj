@@ -281,6 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 954HJ5Q475;
 				INFOPLIST_FILE = CheckButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Fine-App-Productions-LLC.CheckButton";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 954HJ5Q475;
 				INFOPLIST_FILE = CheckButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Fine-App-Productions-LLC.CheckButton";
 				PRODUCT_NAME = "$(TARGET_NAME)";

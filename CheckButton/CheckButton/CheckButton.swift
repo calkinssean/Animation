@@ -9,7 +9,7 @@
 import UIKit
 
 class CheckButton: UIButton {
-    
+ 
     private var parentRect = CGRect.zero
     private var checkLayer: CAShapeLayer?
     private var xLayer: CAShapeLayer?
@@ -17,16 +17,33 @@ class CheckButton: UIButton {
     private var frameHeight = CGFloat()
     private var lineWidth = CGFloat()
     
+    public var checked = false {
+        didSet {
+            if checked {
+                checkLayer = createCheckLayer()
+                if let checkLayer = checkLayer {
+                    layer.addSublayer(checkLayer)
+                }
+            } else {
+                xLayer = createXLayer()
+                if let xLayer = xLayer {
+                    layer.addSublayer(xLayer)
+                }
+            }
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        layer.backgroundColor = UIColor.gray.cgColor
         layer.cornerRadius = frame.width / 2
         frameWidth = frame.width
         frameHeight = frame.height
         lineWidth = min(frameHeight, frameHeight) / 10
-        xLayer = createXLayer()
         tintColor = .clear
-        layer.addSublayer(xLayer!)
+        checkLayer = createCheckLayer()
+        if let checkLayer = checkLayer {
+            layer.addSublayer(checkLayer)
+        }
     }
     
     override var isSelected: Bool {
@@ -44,9 +61,10 @@ class CheckButton: UIButton {
             xLayer!.removeFromSuperlayer()
             xLayer = nil
         }
-        checkLayer = createCheckLayer()
-        layer.addSublayer(checkLayer!)
-        animateStroke(layer: checkLayer!)
+        let newLayer = createCheckLayer()
+        checkLayer = newLayer
+        layer.addSublayer(newLayer)
+        animateStroke(layer: newLayer)
     }
     
     private func addXLayer() {
@@ -54,9 +72,10 @@ class CheckButton: UIButton {
             checkLayer!.removeFromSuperlayer()
             checkLayer = nil
         }
-        xLayer = createXLayer()
-        layer.addSublayer(xLayer!)
-        animateStroke(layer: xLayer!)
+        let newLayer = createXLayer()
+        xLayer = newLayer
+        layer.addSublayer(newLayer)
+        animateStroke(layer: newLayer)
     }
     
     private func checkPath() -> UIBezierPath {
