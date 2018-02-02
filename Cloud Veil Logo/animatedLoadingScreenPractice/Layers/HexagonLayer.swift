@@ -17,7 +17,6 @@ class HexagonLayer: CAShapeLayer {
         fillColor = UIColor.clear.cgColor
         lineWidth = 5.0
         path = hexagonPathFull.cgPath
-        
     }
     
     required init(coder aDecoder: NSCoder) {
