@@ -9,12 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet var checkButton: CheckButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkButton.checked = true
+        checkButton.isSelected = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 

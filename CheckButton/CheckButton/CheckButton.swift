@@ -17,22 +17,6 @@ class CheckButton: UIButton {
     private var frameHeight = CGFloat()
     private var lineWidth = CGFloat()
     
-    public var checked = false {
-        didSet {
-            if checked {
-                checkLayer = createCheckLayer()
-                if let checkLayer = checkLayer {
-                    layer.addSublayer(checkLayer)
-                }
-            } else {
-                xLayer = createXLayer()
-                if let xLayer = xLayer {
-                    layer.addSublayer(xLayer)
-                }
-            }
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = frame.width / 2
@@ -40,10 +24,7 @@ class CheckButton: UIButton {
         frameHeight = frame.height
         lineWidth = min(frameHeight, frameHeight) / 10
         tintColor = .clear
-        checkLayer = createCheckLayer()
-        if let checkLayer = checkLayer {
-            layer.addSublayer(checkLayer)
-        }
+        addXLayer()
     }
     
     override var isSelected: Bool {
