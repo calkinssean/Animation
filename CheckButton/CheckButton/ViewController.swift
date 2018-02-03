@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkButton.isSelected = true
+        
+        // Set selected bool on view did load in order to draw the correct symbol
+        checkButton.isSelected = false
         // Do any additional setup after loading the view, typically from a nib.
     }
 

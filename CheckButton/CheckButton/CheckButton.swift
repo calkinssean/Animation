@@ -24,7 +24,6 @@ class CheckButton: UIButton {
         frameHeight = frame.height
         lineWidth = min(frameHeight, frameHeight) / 10
         tintColor = .clear
-        addXLayer()
     }
     
     override var isSelected: Bool {
