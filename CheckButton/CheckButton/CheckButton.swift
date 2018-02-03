@@ -28,6 +28,7 @@ class CheckButton: UIButton {
     
     override var isSelected: Bool {
         didSet {
+            removeSublayers()
             if isSelected {
                 addCheckLayer()
             } else {
@@ -56,6 +57,16 @@ class CheckButton: UIButton {
         xLayer = newLayer
         layer.addSublayer(newLayer)
         animateStroke(layer: newLayer)
+    }
+    
+    private func removeSublayers() {
+        if let layers = layer.sublayers {
+            for layer in layers {
+                if layer == checkLayer || layer == xLayer {
+                    layer.removeFromSuperlayer()
+                }
+            }
+        }
     }
     
     private func checkPath() -> UIBezierPath {
